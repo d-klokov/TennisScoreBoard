@@ -1,0 +1,160 @@
+h1 {
+    text-align: center;
+    color: #3a86ff;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+
+.navigation {
+    width: 100%;
+    height: 12vh;
+    background: #3a86ff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.links {
+    width: 25%;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding: 10px 20px 10px 20px;
+    background: #e9ecef;
+    border-radius: 10px;
+}
+
+.container, title {
+    margin-top: 50px;
+}
+
+.link {
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.link:hover {
+    color: #b5e2fa;
+}
+
+.content {
+    margin-top: 20px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.filter, .pagination button {
+    color: #2b2d42;
+}
+
+table {
+    color: #2b2d42;
+}
+
+thead {
+    color: #3a86ff;
+    font-weight: bold;
+}
+
+td {
+    padding: 5px;
+    text-align: center;
+    border: 2px solid #2b2d42;
+}
+
+.playerName {
+    margin-left: 1%;
+    width: 30%;
+    height: 6vh;
+}
+
+.matchId {
+    width: 10%;
+}
+
+.playerOneName, .playerTwoName, .winnerName {
+    width: 30%;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.filterButton {
+    margin-left: 1%;
+    width: 10%;
+    height: 6vh;
+    background: #3a86ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.clearButton {
+    background: #3a86ff;
+    color: white;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    height: 6vh;
+}
+
+.filterButton:hover, .clearButton:hover {
+    background: #2b77f0;
+}
+
+.clearLink {
+    width: 10%;
+    margin-left: 1%;
+}
+
+.clearButton {
+
+}
+
+.error {
+    margin-bottom: 10px;
+    text-align: right;
+    font-size: 14px;
+    color: #d90429;
+}
+
+.pagination {
+    width: 25%;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-self: center;
+}
+
+.pagination a {
+    text-decoration: none;
+}
+
+.pagination button {
+    padding: 10px;
+}

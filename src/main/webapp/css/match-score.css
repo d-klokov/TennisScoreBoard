@@ -1,0 +1,130 @@
+h1, h3 {
+    text-align: center;
+    color: #3a86ff;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+
+.navigation {
+    width: 100%;
+    height: 12vh;
+    background: #3a86ff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.links {
+    width: 25%;
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding: 10px 20px 10px 20px;
+    background: #e9ecef;
+    border-radius: 10px;
+}
+
+.container, title {
+    margin-top: 50px;
+}
+
+.link {
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.link:hover {
+    color: #b5e2fa;
+}
+
+.content {
+    margin-top: 20px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+table {
+    color: #2b2d42;
+}
+
+thead {
+    color: #3a86ff;
+    font-weight: bold;
+}
+
+td {
+    padding: 5px;
+    text-align: center;
+    border: 2px solid #2b2d42;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.player {
+    width: 40%;
+}
+
+.set, .game, .point, .col {
+    width: 20%;
+}
+
+.points {
+    font-weight: bold;
+}
+
+.button {
+    width: 30%;
+    height: 10vh;
+    font-size: 16px;
+    background: #3a86ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.button:hover {
+    color: #b5e2fa;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tieBreak {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tieBreak h3 {
+    margin-bottom: 10px;
+}
+
+.tieBreak table {
+    margin-top: 0px;
+}

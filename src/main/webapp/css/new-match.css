@@ -1,0 +1,90 @@
+h1 {
+    text-align: center;
+    color: #3a86ff;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+
+.navigation {
+    width: 100%;
+    height: 12vh;
+    background: #3a86ff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.links {
+    width: 25%;
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding: 5px;
+    background: #e9ecef;
+    border-radius: 10px;
+}
+
+.container, title {
+    margin-top: 50px;
+}
+
+.link {
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.link:hover {
+    color: #b5e2fa;
+}
+
+.content {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #3a86ff;
+}
+
+.submit {
+    width: 100%;
+    padding: 5px;
+    font-size: 18px;
+    background: #3a86ff;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+.submit:hover {
+    background: #2b77f0;
+}
+
+.error {
+    margin-top: 5px;
+    text-align: right;
+    font-size: 14px;
+    color: #d90429;
+}
+
+.formRow {
+    padding: 5px;
+}

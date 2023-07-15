@@ -1,0 +1,14 @@
+INSERT INTO players (name) VALUES ('Ivan');
+INSERT INTO players (name) VALUES ('Pavel');
+INSERT INTO players (name) VALUES ('Dmitriy');
+INSERT INTO players (name) VALUES ('Sergey');
+INSERT INTO players (name) VALUES ('Valeriy');
+INSERT INTO players (name) VALUES ('Igor');
+INSERT INTO matches (player_one_id, player_two_id, winner_id) VALUES (1, 2, 1);
+INSERT INTO matches (player_one_id, player_two_id, winner_id) VALUES (3, 4, 3);
+INSERT INTO matches (player_one_id, player_two_id, winner_id) VALUES (5, 6, 6);
+INSERT INTO matches (player_one_id, player_two_id, winner_id) VALUES (1, 3, 3);
+INSERT INTO matches (player_one_id, player_two_id, winner_id) VALUES (2, 5, 2);
+INSERT INTO matches (player_one_id, player_two_id, winner_id) VALUES (3, 6, 3);
+INSERT INTO matches (player_one_id, player_two_id, winner_id) VALUES (1, 4, 1);
+INSERT INTO matches (player_one_id, player_two_id, winner_id) VALUES (1, 5, 1);
