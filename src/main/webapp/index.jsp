@@ -1,22 +1,33 @@
-<html>
-    <head>
-        <title>Tennis score board</title>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style><%@ include file="/css/index.css"%></style>
-    <body>
-        <div class="navigation">
-            <div class="links">
-                <a class="link" href="index">HOME</a>
-                <a class="link" href="new-match">NEW</a>
-                <a class="link" href="matches">MATCHES</a>
-            </div>
-        </div>
-        <div class="container">
-            <div class="title"><h1>Tennis score board</h1></div>
+    <title>Tennis score board</title>
+</head>
+<body>
+    <section>
+        <header>
+            <nav>
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="index">HOME</a></li>
+                    <li><a class="nav-link" href="new-match">NEW</a></li>
+                    <li><a class="nav-link" href="matches">MATCHES</a></li>
+                </ul>
+            </nav>
+        </header>
+    </section>
+    <section>
+        <article>
             <div class="content">
-                <p><strong><a class="content-link" href="new-match">NEW</a></strong> - start new match</p>
-                <p><strong><a class="content-link" href="matches">MATCHES</a></strong> - list of finished matches</p>
+                <h1>Tennis score board</h1>
+                <div class="content-body">
+                    <p><strong><a class="content-link" href="new-match">NEW</a></strong> - start new match</p>
+                    <p><strong><a class="content-link" href="matches">MATCHES</a></strong> - list of finished matches</p>
+                </div>
             </div>
-        </div>
-    </body>
+        </article>
+    </section>
+</body>
 </html>

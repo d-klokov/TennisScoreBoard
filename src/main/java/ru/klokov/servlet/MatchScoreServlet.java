@@ -41,7 +41,7 @@ public class MatchScoreServlet extends BaseServlet {
         req.setAttribute("uuid", uuid);
 
         Optional<Match> matchOpt = onGoingMatchesService.get(uuid);
-        if (matchOpt.isEmpty()) throw new ResourceNotFoundException("Match with UUID: " + uuid + " not found!");
+        if (matchOpt.isEmpty()) throw new ResourceNotFoundException("Match with UUID " + uuid + " not found!");
 
         Match match = matchOpt.get();
         req.setAttribute("match", match);
@@ -56,7 +56,7 @@ public class MatchScoreServlet extends BaseServlet {
         if (uuid.isBlank()) throw new BadRequestException("UUID of match doesn't present in request!");
 
         Optional<Match> matchOpt = onGoingMatchesService.get(uuid);
-        if (matchOpt.isEmpty()) throw new ResourceNotFoundException("Match with UUID: " + uuid + " not found!");
+        if (matchOpt.isEmpty()) throw new ResourceNotFoundException("Match with UUID " + uuid + " not found!");
 
         Match match = matchOpt.get();
 
