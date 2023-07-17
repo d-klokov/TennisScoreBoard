@@ -4,14 +4,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.hibernate.HibernateException;
 import ru.klokov.exception.BadRequestException;
 import ru.klokov.exception.DatabaseException;
 import ru.klokov.exception.ResourceNotFoundException;
 import ru.klokov.util.ErrorHandler;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 public class BaseServlet extends HttpServlet {
     @Override
