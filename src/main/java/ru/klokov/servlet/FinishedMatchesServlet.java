@@ -15,7 +15,7 @@ import java.util.List;
 @WebServlet("/matches")
 public class FinishedMatchesServlet extends BaseServlet {
     private FinishedMatchesPersistenceService finishedMatchesPersistenceService;
-    private static final int MATCHES_ON_PAGE = 3;
+    private static final int MATCHES_ON_PAGE = 5;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
