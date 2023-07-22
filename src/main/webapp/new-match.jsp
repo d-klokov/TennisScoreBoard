@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style><%@ include file="/css/style.css"%></style>
         <style><%@ include file="/css/new-match.css"%></style>
         <title>New match</title>
     </head>
@@ -10,11 +11,11 @@
         <section>
             <header>
                 <nav>
-                    <ul class="nav-list">
-                        <li><a class="nav-link" href="index">HOME</a></li>
-                        <li><a class="nav-link" href="new-match">NEW</a></li>
-                        <li><a class="nav-link" href="matches">MATCHES</a></li>
-                    </ul>
+                    <div class="nav-list">
+                        <a class="nav-link" href="index"><div>HOME</div></a>
+                        <a class="nav-link" href="new-match"><div>NEW</div></a>
+                        <a class="nav-link" href="matches"><div>MATCHES</div></a>
+                    </div>
                 </nav>
             </header>
         </section>
@@ -25,22 +26,32 @@
                     <div class="content-body">
                         <form action="new-match" method="POST">
                             <div class="formRow">
-                                <span>Player 1 name: </span><input type="text" name="playerOneName" value="${playerOneName}" />
+                                <div class="titleCol"><h3>Player 1 name:</h3></div>
+                                <div class="inputCol">
+                                    <input type="text" name="playerOneName" value="${playerOneName}" />
+                                </div>
+                            </div>
+                            <div class="formRow">
                                 <c:if test="${errors.playerOneNameNotValid}">
                                     <div class="error">${errors.playerOneNameNotValid}</div>
                                 </c:if>
                             </div>
                             <div class="formRow">
-                                <span>Player 2 name: </span><input type="text" name="playerTwoName" value="${playerTwoName}" />
+                                <div class="titleCol"><h3>Player 2 name:</h3></div>
+                                <div class="inputCol">
+                                    <input type="text" name="playerTwoName" value="${playerTwoName}" />
+                                </div>
+                            </div>
+                            <div class="formRow">
                                 <c:if test="${errors.playerTwoNameNotValid}">
                                     <div class="error">${errors.playerTwoNameNotValid}</div>
                                 </c:if>
                             </div>
-                            <div class="formRow">
-                                <c:if test="${errors.playerNamesAreSame}">
+                            <c:if test="${errors.playerNamesAreSame}">
+                                <div class="formRow">
                                     <div class="error">${errors.playerNamesAreSame}</div>
-                                </c:if>
-                            </div>
+                                </div>
+                            </c:if>
                             <div class="formRow">
                                 <input class="submit" type="submit" value="START"></input>
                             </div>

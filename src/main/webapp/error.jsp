@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style><%@ include file="/css/style.css"%></style>
     <style><%@ include file="/css/error.css"%></style>
     <title>Error ${status}</title>
 </head>
@@ -9,11 +10,11 @@
     <section>
         <header>
             <nav>
-                <ul class="nav-list">
-                    <li><a class="nav-link" href="index">HOME</a></li>
-                    <li><a class="nav-link" href="new-match">NEW</a></li>
-                    <li><a class="nav-link" href="matches">MATCHES</a></li>
-                </ul>
+                <div class="nav-list">
+                    <a class="nav-link" href="index"><div>HOME</div></a>
+                    <a class="nav-link" href="new-match"><div>NEW</div></a>
+                    <a class="nav-link" href="matches"><div>MATCHES</div></a>
+                </div>
             </nav>
         </header>
     </section>
