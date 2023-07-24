@@ -26,25 +26,25 @@
                     <div class="content-body">
                         <form action="new-match" method="POST">
                             <div class="formRow">
-                                <div class="titleCol"><h3>Player 1 name:</h3></div>
+                                <div class="titleCol"><h4>Player 1 name:</h4></div>
                                 <div class="inputCol">
                                     <input type="text" name="playerOneName" value="${playerOneName}" />
                                 </div>
                             </div>
                             <div class="formRow">
                                 <c:if test="${errors.playerOneNameNotValid}">
-                                    <div class="error">${errors.playerOneNameNotValid}</div>
+                                    <div class="error"><span>${errors.playerOneNameNotValid}</span></div>
                                 </c:if>
                             </div>
                             <div class="formRow">
-                                <div class="titleCol"><h3>Player 2 name:</h3></div>
+                                <div class="titleCol"><h4>Player 2 name:</h4></div>
                                 <div class="inputCol">
                                     <input type="text" name="playerTwoName" value="${playerTwoName}" />
                                 </div>
                             </div>
                             <div class="formRow">
                                 <c:if test="${errors.playerTwoNameNotValid}">
-                                    <div class="error">${errors.playerTwoNameNotValid}</div>
+                                    <div class="error"><span>${errors.playerTwoNameNotValid}</span></div>
                                 </c:if>
                             </div>
                             <c:if test="${errors.playerNamesAreSame}">

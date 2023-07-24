@@ -36,12 +36,16 @@ public class MatchScoreCalculationService {
     public void calculatePlayerPointsInTieBreakMode(EPlayer player, MatchScore matchScore) {
         EPlayer otherPlayer = player.equals(EPlayer.PLAYER_ONE) ? EPlayer.PLAYER_TWO : EPlayer.PLAYER_ONE;
 
-        if (playerTieBreakPointsLessThen5(player, matchScore)) matchScore.increaseTieBreakPoints(player);
-        else if (playerTieBreakPointsEqualsTo5(player, matchScore)) {
-            if (playerTieBreakPointsEqualsTo6(otherPlayer, matchScore)) matchScore.clearTieBreakPoints();
-            else matchScore.increaseTieBreakPoints(player);
-        } else if (playerTieBreakPointsEqualsTo6(player, matchScore)) {
-            if (playersTieBreakPointsLessThen6(otherPlayer, matchScore)) {
+        if (playerTieBreakPointsLessThen6(player, matchScore)) matchScore.increaseTieBreakPoints(player);
+        else if (playerTieBreakPointsEqualsTo6(player, matchScore)) {
+            if (playerTieBreakPointsLessThen6(otherPlayer, matchScore)) {
+                playerWinsSet(player, matchScore);
+                matchScore.clearTieBreakPoints();
+                setRegularMode(matchScore);
+            } else matchScore.increaseTieBreakPoints(player);
+        } else {
+            matchScore.increaseTieBreakPoints(player);
+            if (playerWinsTieBreakPointWithAdvantage(player, matchScore)) {
                 playerWinsSet(player, matchScore);
                 matchScore.clearTieBreakPoints();
                 setRegularMode(matchScore);
@@ -79,20 +83,17 @@ public class MatchScoreCalculationService {
         return matchScore.getPlayerPoints(player) == 40;
     }
 
-    public boolean playerTieBreakPointsLessThen5(EPlayer player, MatchScore matchScore) {
-        return matchScore.getPlayerTieBreakPoints(player) < 5;
-    }
-
-    public boolean playersTieBreakPointsLessThen6(EPlayer player, MatchScore matchScore) {
+    public boolean playerTieBreakPointsLessThen6(EPlayer player, MatchScore matchScore) {
         return matchScore.getPlayerTieBreakPoints(player) < 6;
-    }
-
-    public boolean playerTieBreakPointsEqualsTo5(EPlayer player, MatchScore matchScore) {
-        return matchScore.getPlayerTieBreakPoints(player) == 5;
     }
 
     public boolean playerTieBreakPointsEqualsTo6(EPlayer player, MatchScore matchScore) {
         return matchScore.getPlayerTieBreakPoints(player) == 6;
+    }
+
+    public boolean playerWinsTieBreakPointWithAdvantage(EPlayer player, MatchScore matchScore) {
+        EPlayer otherPlayer = player.equals(EPlayer.PLAYER_ONE) ? EPlayer.PLAYER_TWO : EPlayer.PLAYER_ONE;
+        return matchScore.getPlayerTieBreakPoints(player) - matchScore.getPlayerTieBreakPoints(otherPlayer) == 2;
     }
 
     public void add15PointsToPlayer(EPlayer player, MatchScore matchScore) {

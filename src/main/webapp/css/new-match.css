@@ -1,45 +1,55 @@
+@media (min-width: 320px) and (max-width: 768px) {
+    .content {
+        width: 80%;
+    }
+
+    .formRow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .content {
+        width: 60%;
+    }
+
+    .titleCol {
+        width: 40%;
+    }
+
+    .inputCol {
+        width: 60%;
+    }
+}
+
 .content-body {
-    margin-top: 2em;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-form {
-    width: 80%;
-    padding: 1em;
-    border-radius: 5em;
-}
-
 .formRow {
     width: 100%;
-    padding: 5px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.titleCol {
-    width: 25%;
-}
-
-.inputCol {
-    width: 75%;
-
-}
-
 .inputCol input {
-    width: 100%;
-    padding: 0.5em 0em 0.5em 0.5em;
-    font: 1.2em/1.2em Tahoma;
-    margin-left: -0.5em;
+    padding: 5px;
+    font: 14px/14px Tahoma;
 }
 
 form span {
-    font: 22px/22px Tahoma;
+    font: 12px/12px Tahoma;
 }
 
 .submit {
+    margin-bottom: 10px;
     width: 100%;
     padding: 5px;
     font: 22px/44px Tahoma;

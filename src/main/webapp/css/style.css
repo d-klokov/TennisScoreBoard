@@ -23,7 +23,7 @@ body {
 
 nav {
     width: 100%;
-    height: 5em;
+    height: 60px;
     margin: 0 auto;
     background: #3a86ff;
     display: flex;
@@ -31,23 +31,37 @@ nav {
 }
 
 .nav-list {
-    width: 50%;
-    height: 5em;
-    margin-left: 1em;
+    height: 60px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.nav-link {
-    width: 20%;
-    height: 5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font: 1em/1em Tahoma;
-    font-weight: bold;
-    color: white;
+@media (min-width: 320px) and (max-width: 768px) {
+    .nav-list {
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 33.3333%;
+        font: 16px/16px Tahoma;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-list {
+        width: 50%;
+        margin-left: 10px;
+    }
+
+    .nav-link {
+        width: 33.3333%;
+        font: 16px/16px Tahoma;
+    }
+
+    .content {
+        width: 60%;
+    }
 }
 
 .nav-link:hover {
@@ -55,16 +69,25 @@ nav {
     color: #3a86ff;
 }
 
+.nav-link {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+}
+
 article {
-    height: calc(100vh - 5em);
+    height: calc(100vh - 60px);
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .content {
-    width: 60%;
-    padding: 3em;
+    padding: 20px;
     background: #e9ecef;
     border-radius: 2em;
 }

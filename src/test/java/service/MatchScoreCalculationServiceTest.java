@@ -112,22 +112,34 @@ public class MatchScoreCalculationServiceTest {
     }
 
     @Test
-    @DisplayName("When tie-break and player 1 wins point and points 5-6 then points are 0-0")
+    @DisplayName("When tie-break and player 1 wins point and points are 5-6 then points are 6-6")
     public void clearTieBreakPoints() {
         matchScoreCalculationService.setTieBreakMode(matchScore);
         matchScore.setTieBreakPoints(new int[]{5, 6});
 
         matchScoreCalculationService.playerWinsPoint(playerOne, matchScore);
 
-        assertEquals(matchScore.getPlayerTieBreakPoints(playerOne), 0);
-        assertEquals(matchScore.getPlayerTieBreakPoints(playerTwo), 0);
+        assertEquals(matchScore.getPlayerTieBreakPoints(playerOne), 6);
+        assertEquals(matchScore.getPlayerTieBreakPoints(playerTwo), 6);
     }
 
     @Test
-    @DisplayName("When tie-break and player 1 wins point and points 6-5 then player 1 wins set")
+    @DisplayName("When tie-break and player 1 wins point and points are 6-5 then player 1 wins set")
     public void winTieBreak() {
         matchScoreCalculationService.setTieBreakMode(matchScore);
         matchScore.setTieBreakPoints(new int[]{6, 5});
+
+        matchScoreCalculationService.playerWinsPoint(playerOne, matchScore);
+
+        assertEquals(matchScore.getPlayerSets(playerOne), 1);
+        assertEquals(matchScore.getPlayerSets(playerTwo), 0);
+    }
+
+    @Test
+    @DisplayName("When tie-break and player 1 wins point and points are 7-6 then player 1 wins set")
+    public void winTieBreakPointWithAdvantage() {
+        matchScoreCalculationService.setTieBreakMode(matchScore);
+        matchScore.setTieBreakPoints(new int[]{7, 6});
 
         matchScoreCalculationService.playerWinsPoint(playerOne, matchScore);
 
