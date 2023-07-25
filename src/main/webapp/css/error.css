@@ -1,3 +1,49 @@
+@media (min-width: 320px) and (max-width: 768px) {
+    .content {
+        width: 80%;
+    }
+
+    .message {
+        font: 18px/18px Tahoma;
+    }
+
+    .homeBtn {
+        width: 100%;
+        font-size: 14px;
+        height: 40px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .content {
+        width: 70%;
+    }
+
+    .message {
+        font: 16px/16px Tahoma;
+    }
+
+    .homeBtn {
+        width: 50%;
+        font-size: 16px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .content {
+        width: 60%;
+    }
+
+    .message {
+        font: 22px/22px Tahoma;
+    }
+
+    .homeBtn {
+        width: 20%;
+    }
+}
+
 .content-body {
     margin-top: 2em;
     display: flex;
@@ -7,15 +53,12 @@
 }
 
 .message {
-    font: 1.5em/1.5em Tahoma;
+    text-align: center;
 }
 
 .homeBtn {
     margin-top: 20px;
     margin-bottom: 20px;
-    font-size: 16px;
-    width: 20%;
-    height: 8vh;
     background: #3a86ff;
     color: #fdfffc;
     display: flex;

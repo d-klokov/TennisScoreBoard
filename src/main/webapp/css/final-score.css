@@ -1,3 +1,15 @@
+@media (min-width: 320px) and (max-width: 1200px) {
+    .homeBtn {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .homeBtn {
+        width: 20%;
+    }
+}
+
 .content-body {
     margin-top: 2em;
     display: flex;
@@ -45,7 +57,6 @@ thead {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 16px;
-    width: 20%;
     height: 8vh;
     background: #3a86ff;
     color: #fdfffc;

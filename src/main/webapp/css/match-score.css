@@ -1,26 +1,99 @@
+@media (min-height: 350px) and (max-height: 800px) {
+    article {
+        height: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 1200px) {
+    .content {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .content h1, h3 {
+        margin-top: 20px;
+        font: bold 22px/22px Tahoma;
+    }
+
+    table {
+        width: 100%;
+        color: #2b2d42;
+        font: 12px/12px Tahoma;
+    }
+
+    thead {
+        color: #3a86ff;
+        font-weight: bold;
+    }
+
+    td {
+        padding: 5px;
+        text-align: center;
+        border: 2px solid #2b2d42;
+    }
+
+    .button {
+        width: 40%;
+        height: 60px;
+        font: 14px/14px Tahoma;
+        background: #3a86ff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .content {
+        width: 60%;
+        padding: 20px;
+    }
+
+    .content h1, h3 {
+        margin-top: 20px;
+        font: bold 28px/28px Tahoma;
+    }
+
+    table {
+        width: 100%;
+        color: #2b2d42;
+        font: 16px/16px Tahoma;
+    }
+
+    thead {
+        color: #3a86ff;
+        font-weight: bold;
+    }
+
+    td {
+        padding: 5px;
+        text-align: center;
+        border: 2px solid #2b2d42;
+    }
+
+    .button {
+        width: 20%;
+        height: 60px;
+        font: 16px/16px Tahoma;
+        background: #3a86ff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+}
+
 .content-body {
-    margin-top: 2em;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-table {
-    width: 100%;
-    color: #2b2d42;
-    font: 1.2em/1.4em Tahoma;
-}
-
-thead {
-    color: #3a86ff;
-    font-weight: bold;
-}
-
-td {
-    padding: 5px;
-    text-align: center;
-    border: 2px solid #2b2d42;
 }
 
 .buttons {
@@ -42,16 +115,6 @@ td {
     font-weight: bold;
 }
 
-.button {
-    width: 30%;
-    height: 10vh;
-    font: 1.4em/1.6em Tahoma;
-    background: #3a86ff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-}
-
 .button:hover {
     background: #2b77f0;
 }
@@ -63,6 +126,7 @@ form {
 }
 
 .tieBreak {
+    margin-top: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -70,10 +134,6 @@ form {
     align-items: center;
 }
 
-.tieBreak h3 {
-    margin-bottom: 10px;
-}
-
 .tieBreak table {
-    margin-top: 0px;
+    margin-top: 20px;
 }
