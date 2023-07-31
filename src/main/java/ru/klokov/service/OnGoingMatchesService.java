@@ -3,14 +3,16 @@ package ru.klokov.service;
 import ru.klokov.model.Match;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class OnGoingMatchesService {
-    private final HashMap<String, Match> onGoingMatches;
+    private final Map<String, Match> onGoingMatches;
 
     public OnGoingMatchesService() {
-        onGoingMatches = new HashMap<>();
+        onGoingMatches = new ConcurrentHashMap<>();
     }
 
     public String add(Match match) {

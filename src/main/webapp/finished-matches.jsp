@@ -46,7 +46,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${matches}" var="match">
+                            <c:forEach items="${page.content}" var="match">
                                 <tr>
                                     <td>${match.id}</td>
                                     <td>${match.playerOne.name}</td>
@@ -65,22 +65,22 @@
                                 <c:set var="filter" value="&filter_by_player_name=${playerName}" />
                             </c:otherwise>
                         </c:choose>
-                        <c:if test="${totalPages > 1}">
+                        <c:if test="${page.totalPages > 1}">
                             <c:choose>
-                                <c:when test="${pageNumber == 1}">
+                                <c:when test="${page.pageNumber == 1}">
                                     <div class="page"><a disabled>Prev</a></div>
                                 </c:when>
-                                <c:when test="${pageNumber > 1}">
-                                    <div class="page"><a href="matches?page=${pageNumber - 1}${filter}">Prev</a></div>
+                                <c:when test="${page.pageNumber > 1}">
+                                    <div class="page"><a href="matches?page=${page.pageNumber - 1}${filter}">Prev</a></div>
                                 </c:when>
                             </c:choose>
-                            <div class="page"><a disabled>${pageNumber}</a></div>
+                            <div class="page"><a disabled>${page.pageNumber}</a></div>
                             <c:choose>
-                                <c:when test="${pageNumber == totalPages}">
+                                <c:when test="${page.pageNumber == page.totalPages}">
                                     <div class="page"><a disabled>Next</a></div>
                                 </c:when>
-                                <c:when test="${pageNumber < totalPages}">
-                                    <div class="page"><a href="matches?page=${pageNumber + 1}${filter}">Next</a></div>
+                                <c:when test="${page.pageNumber < page.totalPages}">
+                                    <div class="page"><a href="matches?page=${page.pageNumber + 1}${filter}">Next</a></div>
                                 </c:when>
                             </c:choose>
                         </c:if>

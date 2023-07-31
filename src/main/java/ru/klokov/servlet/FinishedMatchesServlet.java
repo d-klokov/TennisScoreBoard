@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import ru.klokov.exception.BadRequestException;
 import ru.klokov.model.Match;
+import ru.klokov.model.Page;
 import ru.klokov.service.FinishedMatchesPersistenceService;
 
 import java.io.IOException;
@@ -46,22 +47,23 @@ public class FinishedMatchesServlet extends BaseServlet {
             return;
         }
 
-        List<Match> matches = finishedMatchesPersistenceService.getFinishedMatches(playerName);
+        Page<Match> page = finishedMatchesPersistenceService.getFinishedMatches(pageNumber, MATCHES_ON_PAGE, playerName);
 
-        int matchesQuantity = matches.size();
-        int totalPages = (matchesQuantity % MATCHES_ON_PAGE == 0) ? matchesQuantity / MATCHES_ON_PAGE :
-                matchesQuantity / MATCHES_ON_PAGE + 1;
+//        int matchesQuantity = matches.size();
+//        int totalPages = (matchesQuantity % MATCHES_ON_PAGE == 0) ? matchesQuantity / MATCHES_ON_PAGE :
+//                matchesQuantity / MATCHES_ON_PAGE + 1;
 
-        if (totalPages > 1) {
-            int fromIndex = (pageNumber - 1) * MATCHES_ON_PAGE;
-            int toIndex = (matchesQuantity < (fromIndex + MATCHES_ON_PAGE)) ?
-                    fromIndex + (matchesQuantity - fromIndex) : fromIndex + MATCHES_ON_PAGE;
-            List<Match> matchesPage = matches.subList(fromIndex, toIndex);
-            req.setAttribute("matches", matchesPage);
-        } else req.setAttribute("matches", matches);
+//        if (totalPages > 1) {
+//            int fromIndex = (pageNumber - 1) * MATCHES_ON_PAGE;
+//            int toIndex = (matchesQuantity < (fromIndex + MATCHES_ON_PAGE)) ?
+//                    fromIndex + (matchesQuantity - fromIndex) : fromIndex + MATCHES_ON_PAGE;
+//            List<Match> matchesPage = matches.subList(fromIndex, toIndex);
+//            req.setAttribute("matches", matchesPage);
+//        } else req.setAttribute("matches", matches);
 
-        req.setAttribute("pageNumber", pageNumber);
-        req.setAttribute("totalPages", totalPages);
+//        req.setAttribute("pageNumber", pageNumber);
+//        req.setAttribute("totalPages", totalPages);
+        req.setAttribute("page", page);
 
         req.getRequestDispatcher("/finished-matches.jsp").forward(req, resp);
     }

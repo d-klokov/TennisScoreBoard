@@ -2,6 +2,7 @@ package ru.klokov.service;
 
 import ru.klokov.dao.IMatchDAO;
 import ru.klokov.model.Match;
+import ru.klokov.model.Page;
 
 import java.util.List;
 
@@ -16,8 +17,8 @@ public class FinishedMatchesPersistenceService {
         matchDAO.save(match);
     }
 
-    public List<Match> getFinishedMatches(String playerName) {
-        if (playerName == null || playerName.isBlank()) return matchDAO.findAll();
-        else return matchDAO.findByPlayerName(playerName);
+    public Page<Match> getFinishedMatches(int pageNumber, int pageSize, String playerName) {
+        if (playerName == null || playerName.isBlank()) return matchDAO.findAllPaginated(pageNumber, pageSize);
+        else return matchDAO.findByPlayerNamePaginated(pageNumber, pageSize, playerName);
     }
 }
