@@ -6,12 +6,12 @@ import ru.klokov.model.MatchScore;
 public class MatchScoreCalculationService {
     private static final int NUMBER_OF_SETS_TO_WIN_MATCH = 2;
 
-    public boolean playerWinsPoint(EPlayer player, MatchScore matchScore) {
-        if (!matchScore.isTieBreak()) calculatePlayerPointsInRegularMode(player, matchScore);
-        else calculatePlayerPointsInTieBreakMode(player, matchScore);
-
-        return isMatchFinished(matchScore);
-    }
+//    public boolean playerWinsPoint(EPlayer player, MatchScore matchScore) {
+//        if (!matchScore.isTieBreak()) calculatePlayerPointsInRegularMode(player, matchScore);
+//        else calculatePlayerPointsInTieBreakMode(player, matchScore);
+//
+//        return isMatchFinished(matchScore);
+//    }
 
     public void calculatePlayerPointsInRegularMode(EPlayer player, MatchScore matchScore) {
         EPlayer otherPlayer = player.equals(EPlayer.PLAYER_ONE) ? EPlayer.PLAYER_TWO : EPlayer.PLAYER_ONE;

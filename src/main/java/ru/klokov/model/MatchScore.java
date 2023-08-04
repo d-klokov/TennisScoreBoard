@@ -1,34 +1,101 @@
 package ru.klokov.model;
 
 public class MatchScore {
-    private int[] points;
-    private int[] games;
-    private int[] sets;
-    private int[] ads;
-    private int[] tieBreakPoints;
+//    private int[] points;
+//    private int[] games;
+//    private int[] sets;
+//    private int[] ads;
+//    private int[] tieBreakPoints;
+    private PlayerScore playerOneScore;
+    private PlayerScore playerTwoScore;
     private boolean tieBreak;
     private boolean matchFinished;
     private EPlayer winner;
 
     public MatchScore() {
-        this.points = new int[] {0, 0};
-        this.games = new int[] {0, 0};
-        this.sets = new int[] {0, 0};
-        this.ads = new int[] {0, 0};
-        this.tieBreakPoints = new int[] {0, 0};
+        this.playerOneScore = new PlayerScore();
+        this.playerTwoScore = new PlayerScore();
         this.tieBreak = false;
         this.matchFinished = false;
         this.winner = null;
     }
 
-    public int getPlayerPoints(EPlayer player) {
-        return this.points[player.ordinal()];
+    public GamePoints getPlayerRegularModePoints(EPlayer player) {
+        PlayerScore playerScore = player.equals(EPlayer.PLAYER_ONE) ? playerOneScore : playerTwoScore;
+        return playerScore.getRegularModePoints();
     }
-    public void increasePlayerPoints(EPlayer player, int points) { this.points[player.ordinal()] += points; }
+
+    public void increasePlayerRegularModePoints(EPlayer player) {
+        PlayerScore playerScore = player.equals(EPlayer.PLAYER_ONE) ? playerOneScore : playerTwoScore;
+        switch (playerScore.getRegularModePoints()) {
+            case ZERO:
+                playerScore.setRegularModePoints(GamePoints.FIFTEEN);
+                break;
+            case FIFTEEN:
+                playerScore.setRegularModePoints(GamePoints.THIRTY);
+                break;
+            case THIRTY:
+                playerScore.setRegularModePoints(GamePoints.FORTY);
+                break;
+            case FORTY:
+                playerScore.setRegularModePoints(GamePoints.AD);
+                break;
+        }
+    }
+
+    public boolean playerWinsPoint(EPlayer player) {
+        if (!isTieBreak()) calculatePlayerPointsInRegularMode(player);
+        else calculatePlayerPointsInTieBreakMode(player);
+
+        return isMatchFinished();
+    }
+
+    public void playerWinsGame(EPlayer player) {
+
+    }
+
     public void clearPoints() {
-        this.points[0] = 0;
-        this.points[1] = 0;
+        playerOneScore.setRegularModePoints(GamePoints.ZERO);
+        playerTwoScore.setRegularModePoints(GamePoints.ZERO);
     }
+
+    public void calculatePlayerPointsInRegularMode(EPlayer player) {
+        EPlayer otherPlayer = player.equals(EPlayer.PLAYER_ONE) ? EPlayer.PLAYER_TWO : EPlayer.PLAYER_ONE;
+
+        if (playerPointsLessThen40(player)) increasePlayerRegularModePoints(player);
+        else if (playerPointsEqualsTo40(player)) {
+            if (playerPointsLessThen40(otherPlayer)) {
+                playerWinsGame(player);
+                clearPoints();
+            } else if (playerPointsEqualsTo40(otherPlayer)) {
+                increasePlayerRegularModePoints(player);
+            }
+        }
+    }
+
+    public void calculatePlayerPointsInTieBreakMode(EPlayer player) {
+
+    }
+
+    public boolean playerPointsLessThen40(EPlayer player) {
+        PlayerScore playerScore = player.equals(EPlayer.PLAYER_ONE) ? playerOneScore : playerTwoScore;
+        return playerScore.getRegularModePoints().equals(GamePoints.ZERO) ||
+                playerScore.getRegularModePoints().equals(GamePoints.FIFTEEN) ||
+                playerScore.getRegularModePoints().equals(GamePoints.THIRTY) ||
+                playerScore.getRegularModePoints().equals(GamePoints.FORTY);
+    }
+
+    public boolean playerPointsEqualsTo40(EPlayer player) {
+        PlayerScore playerScore = player.equals(EPlayer.PLAYER_ONE) ? playerOneScore : playerTwoScore;
+        return playerScore.getRegularModePoints().equals(GamePoints.FORTY);
+    }
+
+
+
+//    public void clearPoints() {
+//        this.points[0] = 0;
+//        this.points[1] = 0;
+//    }
     public int[] getPoints() { return points; }
     public void setPoints(int[] points) {
         this.points = points;

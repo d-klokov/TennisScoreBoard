@@ -5,6 +5,6 @@ import ru.klokov.model.Player;
 import java.util.Optional;
 
 public interface IPlayerDAO {
-    Optional<Player> findByName(String name);
+    Player findByName(String name);
     void save(Player player);
 }

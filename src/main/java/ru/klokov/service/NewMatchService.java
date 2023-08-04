@@ -1,6 +1,7 @@
 package ru.klokov.service;
 
 import ru.klokov.dao.IPlayerDAO;
+import ru.klokov.exception.DatabaseException;
 import ru.klokov.model.Match;
 import ru.klokov.model.Player;
 
@@ -14,22 +15,25 @@ public class NewMatchService {
     }
 
     public Match createNewMatch(String playerOneName, String playerTwoName) {
-        Optional<Player> playerOneOpt = playerDAO.findByName(playerOneName);
-        Optional<Player> playerTwoOpt = playerDAO.findByName(playerTwoName);
-
         Player playerOne;
         Player playerTwo;
 
-        if (playerOneOpt.isEmpty()) {
-            playerOne = new Player(playerOneName);
-            playerDAO.save(playerOne);
-        } else playerOne = playerOneOpt.get();
-
-        if (playerTwoOpt.isEmpty()) {
-            playerTwo = new Player(playerTwoName);
-            playerDAO.save(playerTwo);
-        } else playerTwo = playerTwoOpt.get();
+        playerOne = createOrGetPlayer(playerOneName);
+        playerTwo = createOrGetPlayer(playerTwoName);
 
         return new Match(playerOne, playerTwo);
+    }
+
+    private Player createOrGetPlayer(String playerName) {
+        Player player;
+
+        try {
+            player = new Player(playerName);
+            playerDAO.save(player);
+        } catch (DatabaseException e) {
+            player = playerDAO.findByName(playerName);
+        }
+
+        return player;
     }
 }

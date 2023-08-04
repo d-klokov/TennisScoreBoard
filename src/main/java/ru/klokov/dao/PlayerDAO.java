@@ -11,11 +11,11 @@ import java.util.Optional;
 
 public class PlayerDAO implements IPlayerDAO {
     @Override
-    public Optional<Player> findByName(String name) {
+    public Player findByName(String name) {
         String hql = "From Player where name = :name";
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery(hql, Player.class).setParameter("name", name).uniqueResultOptional();
+            return session.createQuery(hql, Player.class).setParameter("name", name).uniqueResult();
         } catch (HibernateException e) {
             throw new DatabaseException("Database error!");
         }
