@@ -45,7 +45,11 @@ public class MatchScoreServlet extends BaseServlet {
 
         Match match = matchOpt.get();
         req.setAttribute("match", match);
-        req.setAttribute("isTieBreak", matchScoreCalculationService.isTieBreak(match.getMatchScore()));
+        req.setAttribute("isTieBreak", match.getMatchScore().getCurrentSet().getCurrentGame().isTieBreak());
+//        req.setAttribute("playerOnePoints",
+//                match.getMatchScore().getCurrentSet().getCurrentGame().getPlayerScore(0));
+//        req.setAttribute("playerTwoPoints", match.getMatchScore().getCurrentSet().getCurrentGame().getPlayerScore(1));
+//        req.setAttribute("isTieBreak", matchScoreCalculationService.isTieBreak(match.getMatchScore()));
 
         req.getRequestDispatcher("/match-score.jsp").forward(req, resp);
     }
@@ -63,13 +67,13 @@ public class MatchScoreServlet extends BaseServlet {
         String playerNumberParameter = req.getParameter("playerNumberParameter");
         if (playerNumberParameter.isBlank()) throw new BadRequestException("UUID of match doesn't present in request!");
 
-        EPlayer playerNumber = Integer.parseInt(playerNumberParameter) == 0 ? EPlayer.PLAYER_ONE : EPlayer.PLAYER_TWO;
+//        EPlayer playerNumber = Integer.parseInt(playerNumberParameter) == 0 ? EPlayer.PLAYER_ONE : EPlayer.PLAYER_TWO;
+        int playerNumber = Integer.parseInt(playerNumberParameter);
 
-        boolean matchFinished = matchScoreCalculationService.playerWinsPoint(playerNumber, match.getMatchScore());
+        boolean matchFinished = matchScoreCalculationService.playerWonPoint(playerNumber, match.getMatchScore());
 
         if (matchFinished) {
-            match.setWinner(matchScoreCalculationService.getWinner(match.getMatchScore()).equals(EPlayer.PLAYER_ONE) ?
-                    match.getPlayerOne() : match.getPlayerTwo());
+            match.setWinner(matchScoreCalculationService.getWinnerNumber() == 0 ? match.getPlayerOne() : match.getPlayerTwo());
 
             finishedMatchesPersistenceService.save(match);
             onGoingMatchesService.remove(uuid);

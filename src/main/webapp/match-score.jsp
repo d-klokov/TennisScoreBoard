@@ -37,65 +37,28 @@
                         <tbody>
                             <tr>
                                 <td>${match.playerOne.name}</td>
-                                <td class="points">${match.matchScore.sets[0]}</td>
-                                <td class="points">${match.matchScore.games[0]}</td>
-                                <c:choose>
-                                    <c:when test="${match.matchScore.ads[0] == 0 && match.matchScore.ads[1] == 0}">
-                                        <td class="points">${match.matchScore.points[0]}</td>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <c:choose>
-                                            <c:when test="${match.matchScore.ads[0] == 1 && match.matchScore.ads[1] == 0}">
-                                                <td class="points">AD</td>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <td></td>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:otherwise>
-                                </c:choose>
+                                <td class="points">${match.matchScore.getPlayerScore(0)}</td>
+                                <td class="points">${match.matchScore.currentSet.getPlayerScore(0)}</td>
+                                <c:if test="${isTieBreak}">
+                                    <td class="points">${match.matchScore.currentSet.currentGame.getPlayerScore(0)}</td>
+                                </c:if>
+                                <c:if test="${!isTieBreak}">
+                                    <td class="points">${match.matchScore.currentSet.currentGame.getPlayerScore(0).getValue()}</td>
+                                </c:if>
                             </tr>
                             <tr>
                                 <td>${match.playerTwo.name}</td>
-                                <td class="points">${match.matchScore.sets[1]}</td>
-                                <td class="points">${match.matchScore.games[1]}</td>
-                                <c:choose>
-                                    <c:when test="${match.matchScore.ads[0] == 0 && match.matchScore.ads[1] == 0}">
-                                        <td class="points">${match.matchScore.points[1]}</td>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <c:choose>
-                                            <c:when test="${match.matchScore.ads[0] == 0 && match.matchScore.ads[1] == 1}">
-                                                <td class="points">AD</td>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <td></td>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:otherwise>
-                                </c:choose>
+                                <td class="points">${match.matchScore.getPlayerScore(1)}</td>
+                                <td class="points">${match.matchScore.currentSet.getPlayerScore(1)}</td>
+                                <c:if test="${isTieBreak}">
+                                    <td class="points">${match.matchScore.currentSet.currentGame.getPlayerScore(1)}</td>
+                                </c:if>
+                                <c:if test="${!isTieBreak}">
+                                    <td class="points">${match.matchScore.currentSet.currentGame.getPlayerScore(1).getValue()}</td>
+                                </c:if>
                             </tr>
                         </tbody>
                     </table>
-                    <c:if test="${isTieBreak}">
-                        <div class="tieBreak">
-                            <h3>Tie break!</h3>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <td class="col">${match.playerOne.name}</td>
-                                        <td class="col">${match.playerTwo.name}</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="col, points">${match.matchScore.tieBreakPoints[0]}</td>
-                                        <td class="col, points">${match.matchScore.tieBreakPoints[1]}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </c:if>
                     <div class="buttons">
                         <form action="match-score?uuid=${uuid}" method="POST">
                             <button class="button" name="playerNumberParameter" value="0">Player 1 wins point!</button>

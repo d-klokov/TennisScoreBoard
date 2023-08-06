@@ -29,5 +29,4 @@ public class RegularGameScore extends GameScore<RegularGamePlayerPoints> {
 
         return State.ONGOING;
     }
-
 }
