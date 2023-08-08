@@ -1,10 +1,8 @@
 package ru.klokov.service;
 
-import ru.klokov.model.EPlayer;
 import ru.klokov.model.MatchScore;
 
 public class MatchScoreCalculationService {
-//    private final MatchScore matchScore;
     private Integer winnerNumber;
     private boolean matchFinished;
     private static final int NUMBER_OF_SETS_TO_WIN_MATCH = 2;

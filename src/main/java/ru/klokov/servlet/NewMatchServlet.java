@@ -41,6 +41,7 @@ public class NewMatchServlet extends BaseServlet {
 
         if (errors.isEmpty()) {
             Match match = newMatchService.createNewMatch(playerOneName, playerTwoName);
+
             String uuid = onGoingMatchesService.add(match);
             resp.sendRedirect("match-score?uuid=" + uuid);
         } else {

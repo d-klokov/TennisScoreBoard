@@ -1,71 +1,202 @@
-@media (min-width: 320px) and (max-width: 768px) {
-    .content {
-        width: 80%;
-    }
+.row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
 
-    .formRow {
+@media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-}
 
-@media (min-width: 768px) {
-    .content {
-        width: 60%;
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .titleCol {
-        width: 40%;
+        text-align: center;
+        width: 100%;
     }
 
     .inputCol {
-        width: 60%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    input {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .inputCol input {
+        padding: 5px;
+        font: 16px/16px Tahoma;
+    }
+
+    form h4 {
+        font: bold 16px/16px Tahoma;
+    }
+
+    .submit {
+        font: bold 20px/40px Tahoma;
+    }
+
+    .error {
+        font: bold 14px/14px Tahoma;
     }
 }
 
-.content-body {
-    margin-top: 10px;
+@media only screen and (min-width: 320px) and (max-width: 1199px) and (orientation: landscape) {
+    .row {
+        justify-content: space-between;
+    }
+
+    .titleCol {
+        text-align: left;
+        width: 30%;
+    }
+
+    .inputCol {
+        width: 70%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .inputCol input {
+        padding: 5px;
+        font: 16px/16px Tahoma;
+    }
+
+    form h4 {
+        font: bold 16px/16px Tahoma;
+    }
+
+    .submit {
+        font: bold 20px/40px Tahoma;
+    }
+
+    .error {
+        font: bold 14px/14px Tahoma;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .row {
+        justify-content: flex-end;
+    }
+
+    .titleCol {
+        width: 20%;
+    }
+
+    .inputCol {
+        width: 80%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .inputCol input {
+        padding: 5px;
+        font: 16px/16px Tahoma;
+    }
+
+    form h4 {
+        font: bold 16px/16px Tahoma;
+    }
+
+    .submit {
+        font: bold 20px/40px Tahoma;
+    }
+
+    .error {
+        font: bold 14px/14px Tahoma;
+    }
+}
+
+@media (min-width: 1200px) {
+    .row {
+        justify-content: flex-end;
+    }
+
+    .titleCol {
+        width: 15%;
+    }
+
+    .inputCol {
+        width: 85%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .inputCol input {
+        padding: 5px;
+        font: 18px/18px Tahoma;
+    }
+
+    form h4 {
+        font: bold 18px/18px Tahoma;
+    }
+
+    .submit {
+        font: bold 24px/44px Tahoma;
+    }
+
+    .error {
+        font: bold 16px/16px Tahoma;
+    }
+}
+
+.form-container {
+    width: 90%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-self: center;
 }
 
-.formRow {
+form {
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
 }
 
-.inputCol input {
-    padding: 5px;
-    font: 14px/14px Tahoma;
-}
-
-form span {
-    font: 12px/12px Tahoma;
+.titleCol {
+    color: #17594A;
 }
 
 .submit {
-    margin-bottom: 10px;
     width: 100%;
-    padding: 5px;
-    font: 22px/44px Tahoma;
-    background: #3a86ff;
+    background: #17594A;
     color: white;
     border-radius: 5px;
     border: none;
 }
 
-.submit:hover {
-    background: #2b77f0;
+.submit:hover, .submit:active {
+    color: black;
+    background: #FFA41B;
 }
 
 .error {
     margin-top: 5px;
     text-align: right;
-    font: 14px/14px Tahoma;
     color: #d90429;
 }

@@ -1,19 +1,13 @@
 package service;
 
 
-import org.junit.jupiter.api.*;
-import ru.klokov.model.EPlayer;
 import ru.klokov.model.MatchScore;
 import ru.klokov.service.MatchScoreCalculationService;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 public class MatchScoreCalculationServiceTest {
     private MatchScoreCalculationService matchScoreCalculationService;
     private MatchScore matchScore;
-    EPlayer playerOne = EPlayer.PLAYER_ONE;
-    EPlayer playerTwo = EPlayer.PLAYER_TWO;
 
 //    @BeforeEach
 //    public void scoreInit() {

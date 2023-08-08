@@ -1,55 +1,25 @@
-@media (min-width: 320px) and (max-width: 768px) {
-    .content {
-        width: 80%;
-    }
-
+@media (min-width: 320px) and (max-width: 1199px) {
     .message {
         font: 18px/18px Tahoma;
     }
 
     .homeBtn {
-        width: 100%;
-        font-size: 14px;
-        height: 40px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1200px) {
-    .content {
-        width: 70%;
-    }
-
-    .message {
-        font: 16px/16px Tahoma;
-    }
-
-    .homeBtn {
         width: 50%;
-        font-size: 16px;
-        height: 60px;
+        margin-top: 10px;
+        font: bold 10px/20px Tahoma;
     }
 }
 
 @media (min-width: 1200px) {
-    .content {
-        width: 60%;
-    }
-
     .message {
         font: 22px/22px Tahoma;
     }
 
     .homeBtn {
         width: 20%;
+        margin-top: 20px;
+        font: bold 20px/40px Tahoma;
     }
-}
-
-.content-body {
-    margin-top: 2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .message {
@@ -57,17 +27,13 @@
 }
 
 .homeBtn {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background: #3a86ff;
-    color: #fdfffc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #17594A;
+    color: white;
     border-radius: 5px;
-    text-decoration: none;
+    text-align: center;
 }
 
 .homeBtn:hover {
-    background: #2b77f0;
+    background: #FFA41B;
+    color: black;
 }

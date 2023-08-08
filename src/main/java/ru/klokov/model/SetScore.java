@@ -3,8 +3,11 @@ package ru.klokov.model;
 public class SetScore extends Score<Integer> {
     private GameScore<?> currentGame;
 
+    private boolean tieBreak;
+
     public SetScore() {
         this.currentGame = new RegularGameScore();
+        this.tieBreak = false;
     }
 
     @Override
@@ -24,36 +27,42 @@ public class SetScore extends Score<Integer> {
 
     private State playerWonGame(int playerNumber) {
         setPlayerScore(playerNumber, getPlayerScore(playerNumber) + 1);
-        currentGame = currentGame.isTieBreak() ? new TieBreakGameScore() : new RegularGameScore();
+
+        if (isTieBreak()) {
+            System.out.println("RESET TIE BREAK");
+            resetTieBreak();
+            return playerNumber == 0 ? State.PLAYER_ONE_WON : State.PLAYER_TWO_WON;
+        }
+
+        currentGame = new RegularGameScore();
 
         if (getPlayerScore(playerNumber) == 6) {
             if (getOtherPlayerScore(playerNumber) < 5) {
                 return playerNumber == 0 ? State.PLAYER_ONE_WON : State.PLAYER_TWO_WON;
             } else if (getOtherPlayerScore(playerNumber) == 6) {
                 currentGame = new TieBreakGameScore();
-                currentGame.setTieBreak();
+                setTieBreak();
             }
-        } else if (getPlayerScore(playerNumber) == 7 && getPlayerScore(playerNumber) == 5) {
+        } else if (getPlayerScore(playerNumber) == 7 && getOtherPlayerScore(playerNumber) == 5) {
             return playerNumber == 0 ? State.PLAYER_ONE_WON : State.PLAYER_TWO_WON;
         }
-
-//        if (getPlayerScore(playerNumber) < 5) setPlayerScore(playerNumber, getPlayerScore(playerNumber) + 1);
-//        else if (getPlayerScore(playerNumber) == 5) {
-//            if (getOtherPlayerScore(playerNumber) < 5) {
-//                return playerNumber == 0 ? State.PLAYER_ONE_WON : State.PLAYER_TWO_WON;
-//            } else if (getOtherPlayerScore(playerNumber) == 6) {
-//                currentGame = new TieBreakGameScore();
-//                currentGame.setTieBreak();
-//                setPlayerScore(playerNumber, getPlayerScore(playerNumber) + 1);
-//            } else setPlayerScore(playerNumber, getPlayerScore(playerNumber) + 1);
-//        } else if (getPlayerScore(playerNumber) == 7 && getOtherPlayerScore(playerNumber) == 5) {
-//            return playerNumber == 0 ? State.PLAYER_ONE_WON : State.PLAYER_TWO_WON;
-//        }
 
         return State.ONGOING;
     }
 
     public GameScore<?> getCurrentGame() {
         return currentGame;
+    }
+
+    public boolean isTieBreak() {
+        return tieBreak;
+    }
+
+    public void setTieBreak() {
+        tieBreak = true;
+    }
+
+    public void resetTieBreak() {
+        tieBreak = false;
     }
 }

@@ -25,40 +25,36 @@
             <div class="content">
                 <h1>Match score</h1>
                 <div class="content-body">
-                    <table class="main-tbl">
-                        <thead>
-                            <tr>
-                                <td class="player">PLAYER</td>
-                                <td class="set">SETS</td>
-                                <td class="game">GAMES</td>
-                                <td class="point">POINTS</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>${match.playerOne.name}</td>
-                                <td class="points">${match.matchScore.getPlayerScore(0)}</td>
-                                <td class="points">${match.matchScore.currentSet.getPlayerScore(0)}</td>
-                                <c:if test="${isTieBreak}">
-                                    <td class="points">${match.matchScore.currentSet.currentGame.getPlayerScore(0)}</td>
-                                </c:if>
-                                <c:if test="${!isTieBreak}">
-                                    <td class="points">${match.matchScore.currentSet.currentGame.getPlayerScore(0).getValue()}</td>
-                                </c:if>
-                            </tr>
-                            <tr>
-                                <td>${match.playerTwo.name}</td>
-                                <td class="points">${match.matchScore.getPlayerScore(1)}</td>
-                                <td class="points">${match.matchScore.currentSet.getPlayerScore(1)}</td>
-                                <c:if test="${isTieBreak}">
-                                    <td class="points">${match.matchScore.currentSet.currentGame.getPlayerScore(1)}</td>
-                                </c:if>
-                                <c:if test="${!isTieBreak}">
-                                    <td class="points">${match.matchScore.currentSet.currentGame.getPlayerScore(1).getValue()}</td>
-                                </c:if>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="score-board">
+                        <div class="headers">
+                            <div class="players">PLAYERS</div>
+                            <div class="sets">SETS</div>
+                            <div class="games">GAMES</div>
+                            <div class="points">POINTS</div>
+                        </div>
+                        <div class="playerOneScore">
+                            <div class="playerName">${match.playerOne.name}</div>
+                            <div class="value">${match.matchScore.getPlayerScore(0)}</div>
+                            <div class="value">${match.matchScore.currentSet.getPlayerScore(0)}</div>
+                            <c:if test="${isTieBreak}">
+                                <div class="value">${match.matchScore.currentSet.currentGame.getPlayerScore(0)}</div>
+                            </c:if>
+                            <c:if test="${!isTieBreak}">
+                                <div class="value">${match.matchScore.currentSet.currentGame.getPlayerScore(0).getValue()}</div>
+                            </c:if>
+                        </div>
+                        <div class="playerTwoScore">
+                            <div class="playerName">${match.playerTwo.name}</div>
+                            <div class="value">${match.matchScore.getPlayerScore(1)}</div>
+                            <div class="value">${match.matchScore.currentSet.getPlayerScore(1)}</div>
+                            <c:if test="${isTieBreak}">
+                                <div class="value">${match.matchScore.currentSet.currentGame.getPlayerScore(1)}</div>
+                            </c:if>
+                            <c:if test="${!isTieBreak}">
+                                <div class="value">${match.matchScore.currentSet.currentGame.getPlayerScore(1).getValue()}</div>
+                            </c:if>
+                        </div>
+                    </div>
                     <div class="buttons">
                         <form action="match-score?uuid=${uuid}" method="POST">
                             <button class="button" name="playerNumberParameter" value="0">Player 1 wins point!</button>

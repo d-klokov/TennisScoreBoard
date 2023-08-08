@@ -1,73 +1,85 @@
-@media (min-width: 320px) and (max-width: 1200px) {
+@media (min-width: 320px) and (max-width: 1199px) {
+    .result {
+        padding-top: 10px;
+    }
+
+    .row {
+        margin-bottom: 10px;
+    }
+
+    .playerName, .score {
+        font: bold 20px/40px Tahoma;
+    }
+
     .homeBtn {
-        width: 100%;
+        width: 50%;
+        margin-top: 10px;
+        font: bold 10px/20px Tahoma;
     }
 }
 
 @media (min-width: 1200px) {
+    .content {
+        height: 70vh;
+    }
+
+    .result {
+        padding-top: 20px;
+    }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .playerName, .score {
+        font: bold 40px/60px Tahoma;
+    }
+
     .homeBtn {
         width: 20%;
+        margin-top: 20px;
+        font: bold 20px/40px Tahoma;
     }
 }
 
-.content-body {
-    margin-top: 2em;
+.result {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-table {
     width: 100%;
+    background: #17594A;
 }
 
-td {
-    padding: 5px;
-    text-align: center;
-    border: 2px solid #2b2d42;
-    font: 1.2em/1.4em Tahoma;
-}
-
-thead {
-    color: #3a86ff;
-}
-
-.player {
-    width: 50%;
-    font-weight: bold;
-}
-
-.set {
-    width: 50%;
-    font-weight: bold;
-}
-
-.links-cnt {
+.row {
     width: 100%;
-    margin-top: 10px;
-    padding: 5px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    text:decoration: none;
+}
+
+.playerName, .score {
+    text-align: center;
+    background: black;
+    color: white;
+}
+
+.playerName {
+    width: 70%;
+}
+
+.score {
+    width: 20%;
 }
 
 .homeBtn {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    height: 8vh;
-    background: #3a86ff;
-    color: #fdfffc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #17594A;
+    color: white;
     border-radius: 5px;
-    text-decoration: none;
-    align-self: center;
+    text-align: center;
 }
 
 .homeBtn:hover {
-    background: #2b77f0;
+    background: #FFA41B;
+    color: black;
 }

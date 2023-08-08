@@ -1,99 +1,199 @@
-@media (min-height: 350px) and (max-height: 800px) {
-    article {
-        height: 100%;
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-@media (min-width: 320px) and (max-width: 1200px) {
+@media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
     .content {
-        width: 90%;
-        padding: 10px;
+        height: 70vh;
     }
 
-    .content h1, h3 {
-        margin-top: 20px;
-        font: bold 22px/22px Tahoma;
+    .headers {
+        font: bold 12px/12px Tahoma;
     }
 
-    table {
-        width: 100%;
-        color: #2b2d42;
-        font: 12px/12px Tahoma;
+    .headers, .playerOneScore, .playerTwoScore {
+        margin-top: 10px;
     }
 
-    thead {
-        color: #3a86ff;
-        font-weight: bold;
+    .playerTwoScore {
+        margin-bottom: 10px;
     }
 
-    td {
-        padding: 5px;
-        text-align: center;
-        border: 2px solid #2b2d42;
+    .players, .playerName {
+        width: 30%;
+    }
+
+    .sets, .games, .points, .value {
+        width: 20%;
+    }
+
+    .playerName {
+        font: bold 16px/16px Tahoma;
+    }
+
+    .value {
+        font: bold 40px/40px Tahoma;
     }
 
     .button {
-        width: 40%;
-        height: 60px;
-        font: 14px/14px Tahoma;
-        background: #3a86ff;
-        color: white;
-        border: none;
-        border-radius: 8px;
+        width: 45%;
+        padding: 10px;
+        font: bold 10px/10px Tahoma;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1199px) and (orientation: landscape) {
+    .content {
+        height: 70vh;
+    }
+
+    .headers {
+        font: bold 10px/10px Tahoma;
+    }
+
+    .headers, .playerOneScore, .playerTwoScore {
+        margin-top: 5px;
+    }
+
+    .playerTwoScore {
+        margin-bottom: 5px;
+    }
+
+    .players, .playerName {
+        width: 30%;
+    }
+
+    .sets, .games, .points, .value {
+        width: 20%;
+    }
+
+    .playerName {
+        font: bold 12px/12px Tahoma;
+    }
+
+    .value {
+        font: bold 28px/28px Tahoma;
+    }
+
+    .button {
+        width: 45%;
+        padding: 10px;
+        font: bold 10px/10px Tahoma;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .content {
+        height: 70vh;
+    }
+
+    .headers {
+        font: bold 16px/16px Tahoma;
+    }
+
+    .headers, .playerOneScore, .playerTwoScore {
+        margin-top: 20px;
+    }
+
+    .playerTwoScore {
         margin-bottom: 20px;
+    }
+
+    .players, .playerName {
+        width: 30%;
+    }
+
+    .sets, .games, .points, .value {
+        width: 20%;
+    }
+
+    .playerName {
+        font: bold 24px/24px Tahoma;
+    }
+
+    .value {
+        font: bold 54px/54px Tahoma;
+    }
+
+    .button {
+        width: 30%;
+        padding: 20px;
+        font: bold 16px/16px Tahoma;
     }
 }
 
 @media (min-width: 1200px) {
     .content {
-        width: 60%;
-        padding: 20px;
+        height: 70vh;
     }
 
-    .content h1, h3 {
+    .headers {
+        font: bold 18px/18px Tahoma;
+    }
+
+    .headers, .playerOneScore, .playerTwoScore {
         margin-top: 20px;
+    }
+
+    .playerTwoScore {
+        margin-bottom: 20px;
+    }
+
+    .players, .playerName {
+        width: 30%;
+    }
+
+    .sets, .games, .points, .value {
+        width: 20%;
+    }
+
+    .playerName {
         font: bold 28px/28px Tahoma;
     }
 
-    table {
-        width: 100%;
-        color: #2b2d42;
-        font: 16px/16px Tahoma;
-    }
-
-    thead {
-        color: #3a86ff;
-        font-weight: bold;
-    }
-
-    td {
-        padding: 5px;
-        text-align: center;
-        border: 2px solid #2b2d42;
+    .value {
+        font: bold 60px/60px Tahoma;
     }
 
     .button {
         width: 20%;
-        height: 60px;
-        font: 16px/16px Tahoma;
-        background: #3a86ff;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        margin-bottom: 20px;
+        padding: 20px;
+        font: bold 18px/18px Tahoma;
     }
 }
 
-.content-body {
-    margin-top: 20px;
+.score-board {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #17594A;
+}
+
+.headers {
+    color: white;
+}
+
+.headers, .playerOneScore, .playerTwoScore {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.playerName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #FFA41B;
+    border-bottom: 3px solid black;
+}
+
+.value {
+    height: 100%;
+    background: black;
+    color: #FFA41B;
+    border-bottom: 3px solid #FFA41B;
 }
 
 .buttons {
@@ -103,37 +203,19 @@
     margin-top: 20px;
 }
 
-.player {
-    width: 40%;
+.button {
+    background: #17594A;
+    color: white;
+    border-radius: 10px;
 }
 
-.set, .game, .point, .col {
-    width: 20%;
-}
-
-.points {
-    font-weight: bold;
-}
-
-.button:hover {
-    background: #2b77f0;
+.button:hover, .button:active  {
+    color: black;
+    background: #FFA41B;
 }
 
 form {
     width: 100%;
     display: flex;
     justify-content: space-between;
-}
-
-.tieBreak {
-    margin-top: 20px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.tieBreak table {
-    margin-top: 20px;
 }

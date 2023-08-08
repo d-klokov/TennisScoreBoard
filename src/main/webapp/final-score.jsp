@@ -24,24 +24,16 @@
             <div class="content">
                 <h1>Match finished! ${match.winner.name} wins!</h1>
                 <div class="content-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <td class="player">PLAYER</td>
-                                <td class="set">SETS</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>${match.playerOne.name}</td>
-                                <td>${match.matchScore.sets[0]}</td>
-                            </tr>
-                            <tr>
-                                <td>${match.playerTwo.name}</td>
-                                <td>${match.matchScore.sets[1]}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="result">
+                        <div class="row">
+                            <div class="playerName">${match.playerOne.name}</div>
+                            <div class="score">${match.matchScore.getPlayerScore(0)}</div>
+                        </div>
+                        <div class="row">
+                            <div class="playerName">${match.playerTwo.name}</div>
+                            <div class="score">${match.matchScore.getPlayerScore(1)}</div>
+                        </div>
+                    </div>
                     <a class="homeBtn" href="index"><div>HOME</div></a>
                 </div>
             </div>

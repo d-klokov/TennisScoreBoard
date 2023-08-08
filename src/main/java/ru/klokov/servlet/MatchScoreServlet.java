@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import ru.klokov.exception.BadRequestException;
 import ru.klokov.exception.ResourceNotFoundException;
-import ru.klokov.model.EPlayer;
 import ru.klokov.model.Match;
 import ru.klokov.service.FinishedMatchesPersistenceService;
 import ru.klokov.service.MatchScoreCalculationService;
@@ -45,7 +44,7 @@ public class MatchScoreServlet extends BaseServlet {
 
         Match match = matchOpt.get();
         req.setAttribute("match", match);
-        req.setAttribute("isTieBreak", match.getMatchScore().getCurrentSet().getCurrentGame().isTieBreak());
+        req.setAttribute("isTieBreak", match.getMatchScore().getCurrentSet().isTieBreak());
 //        req.setAttribute("playerOnePoints",
 //                match.getMatchScore().getCurrentSet().getCurrentGame().getPlayerScore(0));
 //        req.setAttribute("playerTwoPoints", match.getMatchScore().getCurrentSet().getCurrentGame().getPlayerScore(1));

@@ -24,38 +24,36 @@
                 <div class="content">
                     <h1>New match</h1>
                     <div class="content-body">
-                        <form action="new-match" method="POST">
-                            <div class="formRow">
-                                <div class="titleCol"><h4>Player 1 name:</h4></div>
-                                <div class="inputCol">
-                                    <input type="text" name="playerOneName" value="${playerOneName}" />
+                        <div class="form-container">
+                            <form action="new-match" method="POST">
+                                <div class="row">
+                                    <div class="titleCol"><h4>Player 1 name:</h4></div>
+                                    <div class="inputCol"><input type="text" name="playerOneName" value="${playerOneName}" /></div>
                                 </div>
-                            </div>
-                            <div class="formRow">
-                                <c:if test="${errors.playerOneNameNotValid}">
-                                    <div class="error"><span>${errors.playerOneNameNotValid}</span></div>
+                                <div class="row">
+                                    <c:if test="${errors.playerOneNameNotValid}">
+                                        <div class="error"><span>${errors.playerOneNameNotValid}</span></div>
+                                    </c:if>
+                                </div>
+                                <div class="row">
+                                    <div class="titleCol"><h4>Player 2 name:</h4></div>
+                                    <div class="inputCol"><input type="text" name="playerTwoName" value="${playerTwoName}" /></div>
+                                </div>
+                                <div class="row">
+                                    <c:if test="${errors.playerTwoNameNotValid}">
+                                        <div class="error"><span>${errors.playerTwoNameNotValid}</span></div>
+                                    </c:if>
+                                </div>
+                                <c:if test="${errors.playerNamesAreSame}">
+                                    <div class="row">
+                                        <div class="error">${errors.playerNamesAreSame}</div>
+                                    </div>
                                 </c:if>
-                            </div>
-                            <div class="formRow">
-                                <div class="titleCol"><h4>Player 2 name:</h4></div>
-                                <div class="inputCol">
-                                    <input type="text" name="playerTwoName" value="${playerTwoName}" />
+                                <div class="row">
+                                    <input class="submit" type="submit" value="START"></input>
                                 </div>
-                            </div>
-                            <div class="formRow">
-                                <c:if test="${errors.playerTwoNameNotValid}">
-                                    <div class="error"><span>${errors.playerTwoNameNotValid}</span></div>
-                                </c:if>
-                            </div>
-                            <c:if test="${errors.playerNamesAreSame}">
-                                <div class="formRow">
-                                    <div class="error">${errors.playerNamesAreSame}</div>
-                                </div>
-                            </c:if>
-                            <div class="formRow">
-                                <input class="submit" type="submit" value="START"></input>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </article>

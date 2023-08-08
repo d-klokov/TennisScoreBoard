@@ -18,14 +18,13 @@ ul, ul li {
 
 body {
     background: white;
-    font-family: Tahoma;
 }
 
 nav {
     width: 100%;
     height: 60px;
     margin: 0 auto;
-    background: #3a86ff;
+    background: #17594A;
     display: flex;
     align-items: center;
 }
@@ -37,36 +36,9 @@ nav {
     align-items: center;
 }
 
-@media (min-width: 320px) and (max-width: 768px) {
-    .nav-list {
-        width: 100%;
-    }
-
-    .nav-link {
-        width: 33.3333%;
-        font: 16px/16px Tahoma;
-    }
-}
-
-@media (min-width: 768px) {
-    .nav-list {
-        width: 50%;
-        margin-left: 10px;
-    }
-
-    .nav-link {
-        width: 33.3333%;
-        font: 16px/16px Tahoma;
-    }
-
-    .content {
-        width: 60%;
-    }
-}
-
 .nav-link:hover {
-    background: white;
-    color: #3a86ff;
+    background: #FFA41B;
+    color: black;
 }
 
 .nav-link {
@@ -74,26 +46,83 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
     color: white;
 }
 
 article {
     height: calc(100vh - 60px);
-    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .content {
-    padding: 20px;
+    width: 90%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     background: #e9ecef;
     border-radius: 2em;
 }
 
-.content h1, h3 {
-    text-align: center;
-    font-size: 2em;
-    color: #3a86ff;
+.content-body {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+h1, h4 {
+    color: #17594A;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .nav-list {
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 33.3333%;
+        font: bold 16px/16px Tahoma;
+    }
+
+    h1 {
+        font: bold 24px/24px Tahoma;
+    }
+}
+
+@media (min-width: 768px)  and (max-width: 1199px) {
+    .nav-list {
+        width: 50%;
+        margin-left: 10px;
+    }
+
+    .nav-link {
+        width: 33.3333%;
+        font: bold 18px/18px Tahoma;
+    }
+
+    h1 {
+        font: bold 30px/30px Tahoma;
+    }
+}
+
+@media (min-width: 1200px) {
+    .nav-list {
+        width: 40%;
+        margin-left: 10px;
+    }
+
+    .nav-link {
+        width: 33.3333%;
+        font: bold 18px/18px Tahoma;
+    }
+
+    h1 {
+        font: bold 36px/36px Tahoma;
+    }
+}
+

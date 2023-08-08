@@ -26,36 +26,26 @@
                 <h1>Finished matches</h1>
                 <div class="content-body">
                     <div class="filter">
+                        <div class="playerNameLab">Name:</div>
                         <form action="matches">
-                            <label class="nameLabel" for="filter_by_player_name">Name:</label>
-                            <input id="playerNameInput" class="playerName" type="text" value="${playerName}" name="filter_by_player_name">
-                            <input type="submit" value="Search" class="filterButton" />
-                            <a href="matches" class="clearLink"><input type="button" value="Clear" class="clearButton" /></a>
+                            <input id="playerNameInput" class="playerNameInp" type="text" value="${playerName}" name="filter_by_player_name">
+                            <input type="submit" value="SEARCH" class="filterButton" />
+                            <a href="matches" class="clearLink"><input type="button" value="CLEAR" class="clearButton" /></a>
                         </form>
-                        <c:if test="${error != null}">
-                            <div class="error">${error}</div>
-                        </c:if>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td class="matchId">ID</td>
-                                <td class="playerOneName">Player 1</td>
-                                <td class="playerTwoName">Player 2</td>
-                                <td class="winnerName">Winner</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${page.content}" var="match">
-                                <tr>
-                                    <td>${match.id}</td>
-                                    <td>${match.playerOne.name}</td>
-                                    <td>${match.playerTwo.name}</td>
-                                    <td>${match.winner.name}</td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
+                    <c:if test="${error != null}">
+                        <div class="error">${error}</div>
+                    </c:if>
+                    <div class="matches-list">
+                        <c:forEach items="${page.content}" var="match">
+                            <div class="row">
+                                <div class="id">${match.id}</div>
+                                <div class="playerOne">${match.playerOne.name}</div>
+                                <div class="playerTwo">${match.playerTwo.name}</div>
+                                <div class="winner">${match.winner.name}</div>
+                            </div>
+                        </c:forEach>
+                    </div>
                     <div class="pagination">
                         <c:choose>
                             <c:when test="${empty playerName}">
