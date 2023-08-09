@@ -24,4 +24,8 @@ public class MatchScoreCalculationService {
     public Integer getWinnerNumber() {
         return winnerNumber;
     }
+
+    public boolean isMatchFinished() {
+        return matchFinished;
+    }
 }

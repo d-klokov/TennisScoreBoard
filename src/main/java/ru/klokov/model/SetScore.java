@@ -29,7 +29,6 @@ public class SetScore extends Score<Integer> {
         setPlayerScore(playerNumber, getPlayerScore(playerNumber) + 1);
 
         if (isTieBreak()) {
-            System.out.println("RESET TIE BREAK");
             resetTieBreak();
             return playerNumber == 0 ? State.PLAYER_ONE_WON : State.PLAYER_TWO_WON;
         }
@@ -52,6 +51,9 @@ public class SetScore extends Score<Integer> {
 
     public GameScore<?> getCurrentGame() {
         return currentGame;
+    }
+    public void setCurrentGame(GameScore<?> currentGame) {
+        this.currentGame = currentGame;
     }
 
     public boolean isTieBreak() {
