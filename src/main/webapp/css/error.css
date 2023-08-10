@@ -1,12 +1,24 @@
-@media (min-width: 320px) and (max-width: 1199px) {
+@media only screen and (min-width: 320px) and (max-width: 1199px) and (orientation: portrait) {
     .message {
-        font: 18px/18px Tahoma;
+        font: 24px/24px Tahoma;
     }
 
     .homeBtn {
         width: 50%;
-        margin-top: 10px;
-        font: bold 10px/20px Tahoma;
+        margin-top: 20px;
+        font: bold 18px/36px Tahoma;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1199px) and (orientation: landscape) {
+    .message {
+        font: 24px/24px Tahoma;
+    }
+
+    .homeBtn {
+        width: 50%;
+        margin-top: 20px;
+        font: bold 18px/36px Tahoma;
     }
 }
 

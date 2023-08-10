@@ -92,9 +92,9 @@
     }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 1199px) and (orientation: landscape) {
+@media only screen and (min-width: 320px) and (max-width: 1199px) and (max-height: 499px) and (orientation: landscape) {
     .content {
-        height: 70vh;
+        height: 80vh;
     }
 
     .playerNameLab {
@@ -108,12 +108,12 @@
 
     .playerNameInp {
         width: 50%;
-        font: bold 10px/10px Tahoma;
+        font: bold 14px/14px Tahoma;
     }
 
     .filterButton {
         width: 20%;
-        font: bold 10px/14px Tahoma;
+        font: bold 12px/16px Tahoma;
     }
 
     .clearLink {
@@ -122,7 +122,7 @@
 
     .clearButton {
         width: 100%;
-        font: bold 10px/14px Tahoma;
+        font: bold 12px/16px Tahoma;
     }
 
     .error {
@@ -159,7 +159,7 @@
     }
 
     .id, .playerOne, .playerTwo, .winner {
-        font: 12px/24px Tahoma;
+        font: 18px/28px Tahoma;
     }
 
     .pagination {
@@ -186,7 +186,7 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
+@media only screen and (min-width: 768px) and (max-width: 1199px) and (min-height: 500px) {
     .content {
         height: 70vh;
     }

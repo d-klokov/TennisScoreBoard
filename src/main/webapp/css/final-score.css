@@ -1,4 +1,4 @@
-@media (min-width: 320px) and (max-width: 1199px) {
+@media only screen and (min-width: 320px) and (max-width: 1199px) and (orientation: portrait) {
     .result {
         padding-top: 10px;
     }
@@ -14,7 +14,31 @@
     .homeBtn {
         width: 50%;
         margin-top: 10px;
-        font: bold 10px/20px Tahoma;
+        font: bold 14px/24px Tahoma;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1199px) and (orientation: landscape) {
+    .content {
+        height: 70vh;
+    }
+
+    .result {
+        padding-top: 10px;
+    }
+
+    .row {
+        margin-bottom: 10px;
+    }
+
+    .playerName, .score {
+        font: bold 24px/48px Tahoma;
+    }
+
+    .homeBtn {
+        width: 50%;
+        margin-top: 20px;
+        font: bold 18px/36px Tahoma;
     }
 }
 
